@@ -18,6 +18,9 @@ namespace UnosquareTest.Base
         {
             Driver = driver;
             Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            //Waits until page is completely loaded
+            Wait.Until(Driver => ((IJavaScriptExecutor)Driver).ExecuteScript("return document.readyState").Equals("complete"));
+
         }
 
         public BasePOM(IWebDriver driver, string url)
@@ -28,28 +31,23 @@ namespace UnosquareTest.Base
         }
         #endregion
 
-        public IWebElement GetElementWaitUntil(By by, Func<IWebElement, bool> until,
-                                               int waitSeconds = 30)
+        public void WaitUntil(IWebElement element,Func<IWebElement, bool> until)
         {
-            Wait.Timeout = TimeSpan.FromSeconds(waitSeconds);
-            IWebElement element = null;
             try
             {
-                var waitedElement = Wait.Until<IWebElement>(d =>
+                Wait.Until<IWebElement>(d =>
                 {
-                    element = Driver.FindElement(by);
-
                     //given conditions returns true
-                    if (until(element)) return element;
-
+                    until(element);
                     return element;
+
                 });
-                return element;
             }
             catch (Exception)
             {
-                return element;
+                throw new ElementNotVisibleException("Element not found.");
             }
         }
+
     }
 }

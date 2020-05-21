@@ -66,8 +66,16 @@
     <Compile Include="Base\BasePOM.cs" />
     <Compile Include="Base\BaseTest.cs" />
     <Compile Include="Base\BrowsersEnum.cs" />
-    <Compile Include="Locators\IndexPageContent.cs" />
-    <Compile Include="PageObjects\IndexPage.cs" />
+    <Compile Include="POMS\CartPOM\CartPage.cs" />
+    <Compile Include="POMS\CartPOM\CartPageContent.cs" />
+    <Compile Include="POMS\IndexPOM\IndexPage.cs" />
+    <Compile Include="POMS\IndexPOM\IndexPageContent.cs" />
+    <Compile Include="POMS\ProductDetailsPOM\ProductDetailsPage.cs" />
+    <Compile Include="POMS\ProductDetailsPOM\ProductDetailsPageContent.cs" />
+    <Compile Include="POMS\ProductOfferingPOM\ProductOfferingContent.cs" />
+    <Compile Include="POMS\ProductOfferingPOM\ProductOfferingPage.cs" />
+    <Compile Include="POMS\WindowsPOM\WindowsPage.cs" />
+    <Compile Include="POMS\WindowsPOM\WindowsPageContent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\UnosquareTests.cs" />
   </ItemGroup>
@@ -75,9 +83,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
