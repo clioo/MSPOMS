@@ -28,6 +28,7 @@ namespace UnosquareTest.POMS.CartPOM
             //Wait until dropdown is displayed
             WaitUntil(cartPageContent.AmountDropDownOptions[0], (element) => element.Displayed);
             float expectedPrice = GetTotalPrice() * amount;
+            //Click not choosing sometimes and takes time to refresh totals, needed a while loop with timeout
             var watch = System.Diagnostics.Stopwatch.StartNew();
             while (watch.ElapsedMilliseconds < 30000)
             {

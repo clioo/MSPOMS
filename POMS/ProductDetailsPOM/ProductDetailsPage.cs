@@ -27,6 +27,7 @@ namespace UnosquareTest.POMS.ProductDetailsPOM
 
         public CartPage ClickOnAddToCart()
         {
+            //Needs to scroll because of an element interception
             ((IJavaScriptExecutor)Driver).ExecuteScript("window.scrollTo(0,document.body.scrollHeight)");
             productDetailsContent.AddToCartButton.Click();
             return new CartPage(Driver);

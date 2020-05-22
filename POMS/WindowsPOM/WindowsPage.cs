@@ -26,7 +26,7 @@ namespace UnosquareTest.POMS.WindowsPOM
             Console.WriteLine("***Windows Dropd    own options.***");
             foreach (IWebElement option in windowsPageContent.WindowsDropDownOptions)
             {
-                //Need a thread because of a NUnit bug
+                //Need a thread sleep because of a NUnit bug getting an empty text
                 Thread.Sleep(500);
                 string optionText = option.Text;
                 Console.WriteLine(option.Text);
